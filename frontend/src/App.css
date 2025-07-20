@@ -1,0 +1,130 @@
+.App {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem 0;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.App-header nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.App-header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.App-header li {
+  position: relative;
+}
+
+.App-header a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.App-header a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.App-header a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: all 0.2s ease;
+  transform: translateX(-50%);
+}
+
+.App-header a:hover::after {
+  width: 80%;
+}
+
+main {
+  flex: 1;
+  padding-top: 0;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 1rem 0;
+  }
+  
+  .App-header nav {
+    padding: 0 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .App-header ul {
+    gap: 1.5rem;
+  }
+  
+  .App-header a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header nav {
+    padding: 0 0.75rem;
+  }
+  
+  .App-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .App-header ul {
+    gap: 1rem;
+  }
+  
+  .App-header a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+} 

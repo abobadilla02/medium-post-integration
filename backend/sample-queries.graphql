@@ -1,0 +1,90 @@
+# Sample GraphQL queries for testing the Medium Scheduler API
+
+# Create a new scheduled post
+mutation CreatePost {
+  createScheduledPost(input: {
+    title: "My First Scheduled Post"
+    content: "# Hello Medium!\n\nThis is my first scheduled post using the Medium Scheduler app.\n\n## Features\n- Automated publishing\n- Markdown support\n- Easy scheduling\n\n*Italic text* and **bold text** are supported."
+    scheduledFor: "2024-01-15T10:00:00Z"
+    mediumApiToken: "your_medium_api_token_here"
+  }) {
+    id
+    title
+    content
+    scheduledFor
+    status
+    createdAt
+  }
+}
+
+# Get all scheduled posts
+query GetPosts {
+  scheduledPosts {
+    id
+    title
+    content
+    scheduledFor
+    publishedAt
+    status
+    mediumPostId
+    createdAt
+  }
+}
+
+# Get a specific post by ID
+query GetPost($id: ID!) {
+  scheduledPost(id: $id) {
+    id
+    title
+    content
+    scheduledFor
+    publishedAt
+    status
+    mediumPostId
+    createdAt
+  }
+}
+
+# Get pending posts (ready to be published)
+query GetPendingPosts {
+  pendingPosts {
+    id
+    title
+    content
+    scheduledFor
+    status
+    createdAt
+  }
+}
+
+# Update a post
+mutation UpdatePost($id: ID!) {
+  updateScheduledPost(id: $id, input: {
+    title: "Updated Post Title"
+    content: "Updated content here..."
+    scheduledFor: "2024-01-16T15:00:00Z"
+  }) {
+    id
+    title
+    content
+    scheduledFor
+    status
+    updatedAt
+  }
+}
+
+# Delete a post
+mutation DeletePost($id: ID!) {
+  deleteScheduledPost(id: $id)
+}
+
+# Manually publish a post (for testing)
+mutation PublishPost($id: ID!) {
+  publishPost(id: $id) {
+    id
+    title
+    status
+    publishedAt
+    mediumPostId
+  }
+} 
